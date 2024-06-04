@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} Emissions {% endblock title %}
+{% block body %} 
+<div class="container">
+    <form method="POST" action="{% url 'predict_inputs' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="1st_input" class="form-label">Engine Size</label>
+            <input type="number" step="0.1" class="form-control" id="1st_input" name="1st_input" placeholder="Enter engine size">
+        </div>
+        <div class="mb-3">
+            <label for="2nd_input" class="form-label">Cylinders</label>
+            <input type="number" class="form-control" id="2nd_input" name="2nd_input" placeholder="Enter number of cylinders">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+{% endblock body %}
